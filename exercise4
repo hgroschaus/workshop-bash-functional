@@ -1,0 +1,13 @@
+#!/bin/bash
+
+isnumber='^[0-9]+$'
+
+for arg in "$@"
+do
+    if [[ $arg =~ $isnumber ]]
+    then
+        echo $arg
+    else
+        printf '"%s"\n' $arg
+    fi
+done
