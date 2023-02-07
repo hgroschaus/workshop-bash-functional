@@ -2,7 +2,7 @@
 
 
 function checkReturnedValue () {
-    result=$(($line))
+    result=$(($value1 $operator $value2))
 
     echo "expected: $result"
 }
