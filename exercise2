@@ -1,0 +1,35 @@
+#!/bin/bash
+
+i=1;
+max=$#
+isnumber='^[0-9]+$'
+
+printf "The arguments are [";
+
+for arg in "$@"
+do
+    if [ $i != $max ]
+    then
+        if [[ $arg =~ $isnumber ]]
+        then
+            printf "%s, " $arg;
+        else
+            printf '"%s", ' $arg;
+        fi
+
+    else
+        if [[ $arg =~ $isnumber ]]
+        then
+            printf "%s" $arg;
+        else
+            printf '"%s"' $arg;
+        fi
+
+    fi
+
+
+
+    i=$((i + 1));
+done
+
+echo "]";
