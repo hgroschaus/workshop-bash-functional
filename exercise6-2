@@ -2,27 +2,7 @@
 
 
 function checkReturnedValue () {
-    case $operator in
-    "+")
-            result="$(($value1 + $value2))"
-            ./do_op $value1 + $value2
-        ;;
-
-    "-")
-            result="$(($value1 - $value2))"
-            ./do_op $value1 - $value2
-        ;;
-
-    "/")
-            result="$(($value1 / $value2))"
-            ./do_op $value1 / $value2
-        ;;
-
-    "%")
-            result="$(($value1 % $value2))"
-            ./do_op $value1 % $value2
-        ;;
-    esac
+    result=$(($line))
 
     echo "expected: $result"
 }
