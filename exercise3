@@ -1,0 +1,15 @@
+#!/bin/bash
+
+isnumber='^[0-9]+$'
+
+if [ $# == 0 ]
+then
+    echo "no arguments"
+else
+    if [[ $1 =~ $isnumber ]]
+    then
+        echo "This is number"
+    else
+        echo "This is not a number"
+    fi
+fi
