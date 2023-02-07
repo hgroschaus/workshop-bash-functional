@@ -1,0 +1,30 @@
+#!/bin/bash
+
+operator=$2
+value1=$1
+value2=$3
+
+case $operator in
+  "+")
+        result="$(($value1 + $value2))"
+    ;;
+
+  "-")
+        result="$(($value1 - $value2))"
+    ;;
+
+  "/")
+        result="$(($value1 / $value2))"
+    ;;
+
+  "%")
+        result="$(($value1 % $value2))"
+    ;;
+
+  "*")
+        result="$(($value1 * $value2))"
+    ;;
+esac
+
+
+echo "expected: $result"
