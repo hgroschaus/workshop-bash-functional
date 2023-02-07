@@ -1,30 +1,40 @@
 #!/bin/bash
 
-operator=$2
+
+function checkReturnedValue () {
+    case $operator in
+    "+")
+            result="$(($value1 + $value2))"
+            ./do_op $value1 + $value2
+        ;;
+
+    "-")
+            result="$(($value1 - $value2))"
+            ./do_op $value1 - $value2
+        ;;
+
+    "/")
+            result="$(($value1 / $value2))"
+            ./do_op $value1 / $value2
+        ;;
+
+    "%")
+            result="$(($value1 % $value2))"
+            ./do_op $value1 % $value2
+        ;;
+    esac
+
+    echo "expected: $result"
+}
+
+if [[ $# < 3 ]]
+then
+    echo "USAGE: ./exercise6-2 [VAL1] [OPERATOR] [VAL2]"
+    exit
+fi
+
 value1=$1
 value2=$3
+operator=$2
 
-case $operator in
-  "+")
-        result="$(($value1 + $value2))"
-    ;;
-
-  "-")
-        result="$(($value1 - $value2))"
-    ;;
-
-  "/")
-        result="$(($value1 / $value2))"
-    ;;
-
-  "%")
-        result="$(($value1 % $value2))"
-    ;;
-
-  "*")
-        result="$(($value1 * $value2))"
-    ;;
-esac
-
-
-echo "expected: $result"
+checkReturnedValue value1 value2 operator
