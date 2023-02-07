@@ -14,5 +14,9 @@ do
         echo "($line): TEST PASSED"
     else
         echo "($line): TEST NOT PASSED"
+        echo "expected: "
+        echo "The result of $line is $result"
+        echo "GOT: "
+        ./do_op $line
     fi
 done < configFile
