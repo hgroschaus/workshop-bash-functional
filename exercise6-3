@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function checkReturnedValue () {
+    result=$(($line))
+
+    return $result
+}
+
+while read -r line
+do
+    checkReturnedValue $line
+
+    if ./do_op $line | grep -q "The result of $line is 10"; then
+        echo "($line): TEST PASSED"
+    else
+        echo "($line): TEST NOT PASSED"
+    fi
+done < configFile
